@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
+// const hostname = '0.0.0.0'; 
 
 dotenv.config(); // Load environment variables
 
@@ -22,11 +23,15 @@ app.use('/api', require('./routes/subscriber'));
 
 // Default Route
 app.get('/', (req, res) => {
+    console.log("Test State!")
     res.send('Welcome to the landing page backend!');
 });
 
 // Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// const PORT = process.env.PORT || 5000;
+
+
+const PORT = 5000;
+app.listen(PORT,  () => {
+    console.log(`Server running on port:${PORT}`);
 });
